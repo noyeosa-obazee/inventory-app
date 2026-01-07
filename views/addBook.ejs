@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add New Book</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <header>
+        <h1>📚 Add to Inventory</h1>
+        <a href="/books" class="btn-secondary">← Back to Dashboard</a>
+      </header>
+
+      <div class="form-card">
+        <form action="/books/new" method="POST">
+          <div class="form-group full-width">
+            <label for="title">Book Title</label>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              placeholder="e.g. The Hobbit"
+              required
+            />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="author">Author</label>
+              <select name="author_id" id="author" required>
+                <option value="" disabled selected>-- Select Author --</option>
+                <% authors.forEach(author => { %>
+                <option value="<%= author.id %>"><%= author.name %></option>
+                <% }) %>
+              </select>
+              <small><a href="/authors/new">+ Add new author</a></small>
+            </div>
+
+            <div class="form-group">
+              <label for="genre">Genre</label>
+              <select name="genre_id" id="genre" required>
+                <option value="" disabled selected>-- Select Genre --</option>
+                <% genres.forEach(genre => { %>
+                <option value="<%= genre.id %>"><%= genre.name %></option>
+                <% }) %>
+              </select>
+              <small><a href="/genres/new">+ Add new genre</a></small>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="price">Price ($)</label>
+              <input
+                type="number"
+                id="price"
+                name="price"
+                step="0.01"
+                min="0"
+                placeholder="14.99"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="stock">Quantity in Stock</label>
+              <input
+                type="number"
+                id="stock"
+                name="stock_quantity"
+                min="0"
+                placeholder="10"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-submit">Add Book</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
