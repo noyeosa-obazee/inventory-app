@@ -21,7 +21,8 @@
       </header>
 
       <div class="form-card">
-        <form action="/books/new" method="POST">
+        <form action="/books/update/<%=book_id%>" method="POST">
+          <button type="submit" style="display: none" aria-hidden="true"></button>
           <div class="form-group full-width">
             <label for="title">Book Title</label>
             <input
@@ -55,7 +56,7 @@
                   type="submit"
                   class="btn-submit small-btn"
                   formmethod="GET"
-                  formaction="authors/new"
+                  formaction="<%=book_id%>/authors/new"
                   formnovalidate
                 >
                   + Add New Author
@@ -88,7 +89,7 @@
                   type="submit"
                   class="btn-submit small-btn"
                   formmethod="GET"
-                  formaction="genres/new"
+                  formaction="%=book_id%>/genres/new"
                   formnovalidate
                 >
                   + Add New Genre
@@ -125,7 +126,7 @@
               />
             </div>
           </div>
-
+<input type="hidden" name="bookid" value="<%=book_id%>">
           <div class="form-actions">
             <button type="submit" class="btn-submit">Save</button>
           </div>

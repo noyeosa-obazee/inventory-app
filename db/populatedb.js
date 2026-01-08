@@ -4,6 +4,7 @@ const { Client } = require("pg");
 const dotenv = require("dotenv");
 dotenv.config();
 const SQL = `
+TRUNCATE TABLE books, authors, genres RESTART IDENTITY CASCADE;
 CREATE TABLE IF NOT EXISTS authors (
   id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
   name VARCHAR(255) NOT NULL,

@@ -68,6 +68,34 @@ const deleteBook = async (bookid) => {
   await pool.query("DELETE FROM books WHERE id=$1", [bookid]);
 };
 
+const getBookInfo = async (bookid) => {
+  const { rows } = await pool.query("SELECT * FROM books WHERE id=$1", [
+    bookid,
+  ]);
+
+  return rows;
+};
+
+const updateBook = async (book) => {
+  await pool.query(
+    `UPDATE books
+SET title = $1,
+    price = $2,
+    stock_quantity = $3,
+    author_id = $4,
+    genre_id = $5
+WHERE id = $6`,
+    [
+      book.title,
+      book.price,
+      book.stock_quantity,
+      book.author_id,
+      book.genre_id,
+      Number(book.bookid),
+    ]
+  );
+};
+
 module.exports = {
   getAllBooksData,
   getAllBooks,
@@ -77,4 +105,6 @@ module.exports = {
   addAuthor,
   addGenre,
   deleteBook,
+  getBookInfo,
+  updateBook,
 };

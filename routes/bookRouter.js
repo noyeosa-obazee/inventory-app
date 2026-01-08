@@ -9,6 +9,8 @@ const {
   addNewAuthor,
   addNewGenre,
   deleteBook,
+  getBookUpdateForm,
+  updateBook,
 } = require("../controllers/bookControllers");
 
 bookRoute.get("/", getBooks);
@@ -20,5 +22,11 @@ bookRoute.post("/authors/new", addNewAuthor);
 bookRoute.get("/genres/new", getGenreForm);
 bookRoute.post("/genres/new", addNewGenre);
 bookRoute.get("/delete/:bookId", deleteBook);
+bookRoute.get("/update/:bookId", getBookUpdateForm);
+bookRoute.get("/update/:bookId/authors/new", getAuthorForm);
+bookRoute.post("/update/:bookId/authors/new", addNewAuthor);
+bookRoute.get("/update/:bookId/genres/new", getGenreForm);
+bookRoute.post("/update/:bookId/genres/new", addNewGenre);
+bookRoute.post("/update/:bookId", updateBook);
 
 module.exports = bookRoute;
