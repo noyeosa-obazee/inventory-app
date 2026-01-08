@@ -231,6 +231,11 @@ small a:hover {
   background-color: #1d4ed8;
 }
 
+.small-btn {
+  font-size: small;
+  padding: 10px 15px;
+}
+
 @media (max-width: 600px) {
   .form-row {
     grid-template-columns: 1fr;

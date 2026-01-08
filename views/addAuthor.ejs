@@ -14,7 +14,7 @@
   </head>
   <body>
     <div class="form-card">
-      <form action="authors/new" method="POST">
+      <form action="new" method="POST">
         <div class="form-group full-width">
           <label for="name">Author name</label>
           <input
@@ -34,6 +34,14 @@
             placeholder="e.g. Popular writer of sci-fi"
           />
         </div>
+        <input type="hidden" name="title" value="<%= query.title %>" />
+        <input type="hidden" name="price" value="<%= query.price %>" />
+        <input
+          type="hidden"
+          name="stock_quantity"
+          value="<%= query.stock_quantity %>"
+        />
+        <input type="hidden" name="genre_id" value="<%= query.genre_id %>" />
         <div class="form-actions">
           <button type="submit" class="btn-submit">Add Author</button>
         </div>

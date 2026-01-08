@@ -39,10 +39,34 @@ const addBook = async (book) => {
   );
 };
 
+const addAuthor = async (author) => {
+  if (author.bio) {
+    const { rows } = await pool.query(
+      "INSERT INTO authors (name,bio) VALUES ($1,$2) RETURNING id",
+      [author.name, author.bio]
+    );
+    return rows[0].id;
+  } else {
+    const rows = await pool.query(
+      "INSERT INTO authors (name) VALUES ($1) RETURNING id",
+      [author.name]
+    );
+    return rows[0].id;
+  }
+};
+
+const addGenre = async (genre) => {
+  await pool.query("INSERT INTO genres (name) VALUES ($1) RETURNING id", [
+    genre.name,
+  ]);
+};
+
 module.exports = {
   getAllBooksData,
   getAllBooks,
   getAllAuthors,
   getAllGenres,
   addBook,
+  addAuthor,
+  addGenre,
 };
