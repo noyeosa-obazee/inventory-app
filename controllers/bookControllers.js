@@ -19,7 +19,7 @@ const getAuthorForm = async (req, res) => {
   res.render("addAuthor", { query: req.query });
 };
 const getGenreForm = async (req, res) => {
-  res.render("addGenre");
+  res.render("addGenre", { query: req.query });
 };
 
 const addNewAuthor = async (req, res) => {
@@ -34,7 +34,16 @@ const addNewAuthor = async (req, res) => {
   );
 };
 
-const addNewGenre = async (req, res) => {};
+const addNewGenre = async (req, res) => {
+  const { title, price, stock_quantity, author_id } = req.body;
+  const newGenreId = await db.addGenre(req.body);
+
+  res.redirect(
+    `/books/new?title=${encodeURIComponent(title)}&price=${encodeURIComponent(
+      price
+    )}&author_id=${author_id}&genre_id=${newGenreId}&stock_quantity=${stock_quantity}`
+  );
+};
 
 module.exports = {
   getBooks,

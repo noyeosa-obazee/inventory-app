@@ -14,7 +14,7 @@
   </head>
   <body>
     <div class="form-card">
-      <form action="genres/new" method="POST">
+      <form action="new" method="POST">
         <div class="form-group full-width">
           <label for="name">Name of Genre</label>
           <input
@@ -25,7 +25,14 @@
             required
           />
         </div>
-
+        <input type="hidden" name="title" value="<%= query.title %>" />
+        <input type="hidden" name="price" value="<%= query.price %>" />
+        <input
+          type="hidden"
+          name="stock_quantity"
+          value="<%= query.stock_quantity %>"
+        />
+        <input type="hidden" name="genre_id" value="<%= query.author_id %>" />
         <div class="form-actions">
           <button type="submit" class="btn-submit">Add Genre</button>
         </div>

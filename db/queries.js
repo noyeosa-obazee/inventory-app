@@ -56,9 +56,12 @@ const addAuthor = async (author) => {
 };
 
 const addGenre = async (genre) => {
-  await pool.query("INSERT INTO genres (name) VALUES ($1) RETURNING id", [
-    genre.name,
-  ]);
+  const { rows } = await pool.query(
+    "INSERT INTO genres (name) VALUES ($1) RETURNING id",
+    [genre.name]
+  );
+
+  return rows[0].id;
 };
 
 module.exports = {

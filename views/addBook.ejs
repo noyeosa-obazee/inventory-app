@@ -40,7 +40,12 @@
               <select name="author_id" id="author" required>
                 <option value="" disabled selected>-- Select Author --</option>
                 <% authors.forEach(author => { %>
-                <option value="<%= author.id %>"><%= author.name %></option>
+                <option
+                  value="<%= author.id %>"
+                  selected="<%= data.author_id === author.id%>"
+                >
+                  <%= author.name %>
+                </option>
                 <% }) %>
               </select>
               <!-- <small><a href="authors/new">+ Add new author</a></small> -->
@@ -68,7 +73,12 @@
               >
                 <option value="" disabled selected>-- Select Genre --</option>
                 <% genres.forEach(genre => { %>
-                <option value="<%= genre.id %>"><%= genre.name %></option>
+                <option
+                  value="<%= genre.id %>"
+                  selected="<%= data.genre_id === genre.id%>"
+                >
+                  <%= genre.name %>
+                </option>
                 <% }) %>
               </select>
               <!-- <small><a href="genres/new">+ Add new genre</a></small> -->
