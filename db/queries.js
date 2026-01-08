@@ -32,9 +32,17 @@ const getAllGenres = async () => {
   return rows;
 };
 
+const addBook = async (book) => {
+  await pool.query(
+    "INSERT INTO books (title, price, stock_quantity, author_id, genre_id) VALUES ($1, $2, $3, $4, $5)",
+    [book.title, book.price, book.stock_quantity, book.author_id, book.genre_id]
+  );
+};
+
 module.exports = {
   getAllBooksData,
   getAllBooks,
   getAllAuthors,
   getAllGenres,
+  addBook,
 };

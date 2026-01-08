@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Author</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="form-card">
+      <form action="authors/new" method="POST">
+        <div class="form-group full-width">
+          <label for="name">Author name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="e.g. George Orwell"
+            required
+          />
+        </div>
+        <div class="form-group full-width">
+          <label for="bio">Bio (optional)</label>
+          <input
+            type="text"
+            id="bio"
+            name="bio"
+            placeholder="e.g. Popular writer of sci-fi"
+          />
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn-submit">Add Author</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
