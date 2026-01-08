@@ -64,6 +64,10 @@ const addGenre = async (genre) => {
   return rows[0].id;
 };
 
+const deleteBook = async (bookid) => {
+  await pool.query("DELETE FROM books WHERE id=$1", [bookid]);
+};
+
 module.exports = {
   getAllBooksData,
   getAllBooks,
@@ -72,4 +76,5 @@ module.exports = {
   addBook,
   addAuthor,
   addGenre,
+  deleteBook,
 };

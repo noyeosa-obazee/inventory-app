@@ -45,6 +45,13 @@ const addNewGenre = async (req, res) => {
   );
 };
 
+const getBookUpdateForm = (req, res) => {};
+
+const deleteBook = async (req, res) => {
+  await db.deleteBook(req.params.bookId);
+  res.redirect("/books");
+};
+
 module.exports = {
   getBooks,
   getBookForm,
@@ -53,4 +60,5 @@ module.exports = {
   addNewBook,
   addNewAuthor,
   addNewGenre,
+  deleteBook,
 };

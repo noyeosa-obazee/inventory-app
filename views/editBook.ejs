@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add New Book</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <header>
+        <h1>Edit Book Details</h1>
+        <a href="/books" class="btn-secondary">← Back to Dashboard</a>
+      </header>
+
+      <div class="form-card">
+        <form action="/books/new" method="POST">
+          <div class="form-group full-width">
+            <label for="title">Book Title</label>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              placeholder="e.g. The Hobbit"
+              value="<%= (typeof data !== 'undefined' && data.title) ? data.title : '' %>"
+              required
+            />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="author">Author</label>
+              <select name="author_id" id="author" required>
+                <option value="" disabled selected>-- Select Author --</option>
+                <% authors.forEach(author => { %>
+                <option
+                  value="<%= author.id %>"
+                  <%= (typeof data !== 'undefined' && data.author_id == author.id) ? 'selected' : '' %>
+                >
+                  <%= author.name %>
+                </option>
+                <% }) %>
+              </select>
+              <!-- <small><a href="authors/new">+ Add new author</a></small> -->
+              <br />
+              <small
+                ><button
+                  type="submit"
+                  class="btn-submit small-btn"
+                  formmethod="GET"
+                  formaction="authors/new"
+                  formnovalidate
+                >
+                  + Add New Author
+                </button></small
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="genre">Genre</label>
+              <select
+                name="genre_id"
+                id="genre"
+                value="<%= (typeof data !== 'undefined' && data.genre_id) ? data.genre_id : '' %>"
+                required
+              >
+                <option value="" disabled selected>-- Select Genre --</option>
+                <% genres.forEach(genre => { %>
+                <option
+                  value="<%= genre.id %>"
+               <%= (typeof data !== 'undefined' && data.genre_id == genre.id) ? 'selected' : '' %>
+                >
+                  <%= genre.name %>
+                </option>
+                <% }) %>
+              </select>
+              <!-- <small><a href="genres/new">+ Add new genre</a></small> -->
+              <br />
+              <small>
+                <button
+                  type="submit"
+                  class="btn-submit small-btn"
+                  formmethod="GET"
+                  formaction="genres/new"
+                  formnovalidate
+                >
+                  + Add New Genre
+                </button></small
+              >
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="price">Price ($)</label>
+              <input
+                type="number"
+                id="price"
+                name="price"
+                step="0.01"
+                min="0"
+                placeholder="14.99"
+                value="<%= (typeof data !== 'undefined' && data.price) ? data.price : '' %>"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="stock">Quantity in Stock</label>
+              <input
+                type="number"
+                id="stock"
+                name="stock_quantity"
+                min="0"
+                placeholder="10"
+                value="<%= (typeof data !== 'undefined' && data.stock_quantity) ? data.stock_quantity : '' %>"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-submit">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
