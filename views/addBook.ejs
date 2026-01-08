@@ -42,7 +42,7 @@
                 <% authors.forEach(author => { %>
                 <option
                   value="<%= author.id %>"
-                  selected="<%= data.author_id === author.id%>"
+                  <%= (typeof data !== 'undefined' && data.author_id == author.id) ? 'selected' : '' %>
                 >
                   <%= author.name %>
                 </option>
@@ -75,7 +75,7 @@
                 <% genres.forEach(genre => { %>
                 <option
                   value="<%= genre.id %>"
-                  selected="<%= data.genre_id === genre.id%>"
+               <%= (typeof data !== 'undefined' && data.genre_id == genre.id) ? 'selected' : '' %>
                 >
                   <%= genre.name %>
                 </option>

@@ -47,7 +47,7 @@ const addAuthor = async (author) => {
     );
     return rows[0].id;
   } else {
-    const rows = await pool.query(
+    const { rows } = await pool.query(
       "INSERT INTO authors (name) VALUES ($1) RETURNING id",
       [author.name]
     );
