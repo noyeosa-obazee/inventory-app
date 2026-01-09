@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("node:path");
 const bookRoute = require("./routes/bookRouter");
+const indexRoute = require("./routes/indexRouter");
 const app = express();
 
 const assetsPath = path.join(__dirname, "public");
@@ -11,7 +12,7 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 
 const PORT = process.env.PORT || 3000;
-
+app.use("/", indexRoute);
 app.use("/books", bookRoute);
 
 app.use((req, res, next) => {

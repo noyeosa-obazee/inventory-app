@@ -96,6 +96,11 @@ WHERE id = $6`,
   );
 };
 
+const getBooksCount = async () => {
+  const { rows } = await pool.query("SELECT COUNT(*) AS count FROM books");
+
+  return rows;
+};
 module.exports = {
   getAllBooksData,
   getAllBooks,
@@ -107,4 +112,5 @@ module.exports = {
   deleteBook,
   getBookInfo,
   updateBook,
+  getBooksCount,
 };

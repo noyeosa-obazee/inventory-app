@@ -99,6 +99,13 @@ const updateBook = async (req, res) => {
   res.redirect("/books");
 };
 
+const getHomePage = async (req, res) => {
+  const rows = await db.getBooksCount();
+  const bookCount = rows[0].count;
+
+  res.render("index", { count: bookCount });
+};
+
 module.exports = {
   getBooks,
   getBookForm,
@@ -110,4 +117,5 @@ module.exports = {
   deleteBook,
   getBookUpdateForm,
   updateBook,
+  getHomePage,
 };

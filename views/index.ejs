@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inventory Manager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/main.css" />
+  </head>
+  <body>
+    <div class="hero-container">
+      <div class="hero-content">
+        <h1 class="logo">📚 BookVault</h1>
+
+        <div class="stat-badge">
+          Currently managing <strong><%= count %></strong> books
+        </div>
+
+        <h2 class="headline">Control Your Inventory with Ease</h2>
+        <p class="sub-headline">
+          Track stock, manage authors, and organize genres in one simple
+          dashboard.
+        </p>
+
+        <div class="cta-group">
+          <a href="/books" class="btn btn-primary">View Inventory</a>
+          <a href="/books/new" class="btn btn-outline">Add New Book</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
