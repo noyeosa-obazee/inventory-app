@@ -1,0 +1,27 @@
+{
+  "name": "inventory-app",
+  "version": "1.0.0",
+  "description": "A web application for managing bookstore inventory. It allows users to track books, stock levels, and pricing while managing relationships between authors and genres.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noyeosa-obazee/inventory-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/noyeosa-obazee/inventory-app/issues"
+  },
+  "homepage": "https://github.com/noyeosa-obazee/inventory-app#readme",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "ejs": "^3.1.10",
+    "express": "^5.2.1",
+    "pg": "^8.16.3"
+  }
+}
